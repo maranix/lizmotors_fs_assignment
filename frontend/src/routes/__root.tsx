@@ -1,6 +1,17 @@
+import React from "react";
+
 import { createRootRoute, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import NotFoundComponent from "../components/NotFoundComponent";
+
+const Root: React.FC = () => {
+    return (
+        <>
+            <Outlet />
+            <TanStackRouterDevtools />
+        </>
+    );
+};
 
 export const Route = createRootRoute({
     component: Root,
@@ -10,12 +21,3 @@ export const Route = createRootRoute({
         );
     },
 });
-
-function Root() {
-    return (
-        <>
-            <Outlet />
-            <TanStackRouterDevtools />
-        </>
-    );
-}
