@@ -1,9 +1,13 @@
 import { createLazyFileRoute } from "@tanstack/react-router";
 
 export const Route = createLazyFileRoute("/")({
-    component: Index,
+	component: Index,
 });
 
 function Index() {
-    return <h1>React + TanStack</h1>;
+	return (
+		<h1 className="flex justify-center text-4xl font-black">
+			React + TanStack
+		</h1>
+	);
 }
