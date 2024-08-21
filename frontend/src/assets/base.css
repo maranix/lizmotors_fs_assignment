@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  /* Primary Colors */
+  --color-primary: #5D9CEC; /* Soft Blue */
+  --color-primary-dark: #4B8BD4; /* Darker shade for hover states */
+
+  /* Secondary Colors */
+  --color-secondary: #6D7C8E; /* Slate Gray */
+  --color-secondary-light: #E3E8EF; /* Lighter shade for secondary text or background */
+
+  /* Background Color */
+  --color-background: #F5F7FA; /* Whisper White */
+
+  /* Accent Colors */
+  --color-accent-mint: #D4EBD6; /* Pale Mint */
+  --color-accent-pink: #F7CAC9; /* Blush Pink */
+
+  /* Text Colors */
+  --color-text: #2E2E2E; /* Dark Charcoal */
+  --color-text-secondary: #6D7C8E; /* Slate Gray */
+
+  /* Warning Color */
+  --color-warning: #FCEBB6; /* Soft Yellow */
+
+  /* Card Background Color */
+  --color-card-background: #FCFAFB;
+}
+
+body {
+  max-width: 90rem;
+
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+hr {
+  height: 1px;
+  background-color: var(--color-secondary); /* or --color-secondary-light, or --color-text-secondary */
+  margin: 1rem 0;
+}
