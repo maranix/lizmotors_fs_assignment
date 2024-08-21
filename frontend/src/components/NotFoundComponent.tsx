@@ -13,7 +13,7 @@ const NotFoundComponent = ({
 }: Props) => {
     return (
         <div className={`${className}`}>
-            {variant == "default" ? (
+            {variant === "default" ? (
                 <h1 className="text-4xl font-black">404 Not Found</h1>
             ) : null}
             {children}
