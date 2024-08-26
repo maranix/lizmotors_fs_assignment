@@ -1,23 +1,24 @@
 import fs from "node:fs";
 import path from "node:path";
 import winston from "winston";
+import envConfig from "./env";
+
+const DEBUG_ENV = envConfig.isDebugMode();
 
 const LOG_FOLDER = path.resolve(__dirname, "../../logs");
 fs.mkdirSync(LOG_FOLDER, { recursive: true });
-
-const DEBUG_ENV = process.env.NODE_ENV?.toLowerCase() === "Development".toLowerCase();
 
 // Winston Config
 type Transport = winston.transports.FileTransportInstance | winston.transports.ConsoleTransportInstance;
 
 const LOGGER_INFO = {
 	levels: {
-		info: 0,
-		debug: 1,
-		success: 2,
-		http: 3,
-		warn: 4,
-		error: 5,
+		error: 0,
+		warn: 1,
+		info: 2,
+		debug: 3,
+		http: 4,
+		success: 5,
 	},
 	colors: {
 		error: "red",
@@ -29,7 +30,11 @@ const LOGGER_INFO = {
 	},
 };
 
-const createTransports = (dir: string, console: boolean): Transport[] => {
+const getConsoleTransportLevel = (isDebugMode: boolean): string => {
+	return isDebugMode ? "success" : "info";
+};
+
+const createTransports = (dir: string, isDebugMode: boolean): Transport[] => {
 	const transports: Transport[] = [];
 
 	for (const level of Object.keys(LOGGER_INFO.colors)) {
@@ -37,9 +42,7 @@ const createTransports = (dir: string, console: boolean): Transport[] => {
 		transports.push(transport);
 	}
 
-	if (console) {
-		transports.push(new winston.transports.Console());
-	}
+	transports.push(new winston.transports.Console({ level: getConsoleTransportLevel(isDebugMode) }));
 
 	return transports;
 };

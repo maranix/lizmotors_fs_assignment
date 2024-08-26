@@ -1,9 +1,11 @@
 import logger from "./config/logger";
 import app from "./app";
+import envConfig from "./config/env";
 
-const PORT = process.env.PORT || 8080;
+const HOST = envConfig.HOST;
+const PORT = envConfig.PORT;
 
-const server = app.listen(PORT, async () => {
+const server = app.listen(PORT, HOST, async () => {
 	logger.info(`Listening on PORT: ${PORT}`);
 });
 
