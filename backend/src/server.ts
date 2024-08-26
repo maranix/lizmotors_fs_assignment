@@ -1,14 +1,15 @@
+import logger from "./config/logger";
 import app from "./app";
 
 const PORT = process.env.PORT || 8080;
 
-const server = app.listen(PORT, () => {
-	console.log(`Listening on PORT: ${PORT}`);
+const server = app.listen(PORT, async () => {
+	logger.info(`Listening on PORT: ${PORT}`);
 });
 
 const onCloseSignal = () => {
 	server.close(() => {
-		console.log("Server shutdown");
+		logger.info(`Listening on PORT: ${PORT}`);
 		process.exit();
 	});
 

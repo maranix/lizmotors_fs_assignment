@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Lizmotors",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
