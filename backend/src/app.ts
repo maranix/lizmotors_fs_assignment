@@ -1,7 +1,7 @@
 import express from "express";
-import requestLogger from "./middleware/request_logger";
+import requestLogger from "./middleware/requestLogger";
 import helmet from "helmet";
-import rateLimiter from "./middleware/rate_limiter";
+import rateLimiter from "./middleware/rateLimiter";
 
 const app = express();
 
