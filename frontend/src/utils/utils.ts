@@ -1,11 +1,11 @@
 export const mergeStyles = (...styles: string[]): string => {
-    if (styles.length === 0) return "";
+	if (styles.length === 0) return "";
 
-    let builtStyle = "";
+	let builtStyle = "";
 
-    styles.forEach((style) => {
-        builtStyle += style + " ";
-    });
+	for (const style of styles) {
+		builtStyle += `${style} `;
+	}
 
-    return builtStyle.trim();
+	return builtStyle.trim();
 };
